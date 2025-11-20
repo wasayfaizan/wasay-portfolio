@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import os
 
 # -------------------------
 # Page Config
@@ -32,13 +33,6 @@ st.markdown("""
         color: #111827;
         padding-bottom: 8px;
         border-bottom: 2px solid #e5e7eb;
-    }
-    .project-box {
-        background-color: #f9fafb;
-        padding: 18px;
-        border-radius: 12px;
-        margin-bottom: 15px;
-        border: 1px solid #e5e7eb;
     }
     .project-title {
         font-size: 22px !important;
@@ -84,15 +78,13 @@ if choice == "About Me":
         - 🏥 AI for Healthcare  
         - 🏏 Sports Analytics  
 
-        I love transforming raw data into meaningful insights and building intelligent systems that make real impact.
-
         Over the past few years, I have worked on multiple high-impact projects:
         - 🧠 Sentiment Analysis with BERT  
         - 🔬 Breast Cancer Detection using CNNs  
-        - 🏡 Airbnb Price Analysis and Modeling  
-        - ❤️ Heart Disease Prediction  
-        - 🏏 Cricket and sports analytics  
-        - 🚗 Used Car Price Predictor (ML + Streamlit app)
+        - 🏡 Airbnb Price Analysis  
+        - ❤️ Heart Disease Prediction Models  
+        - 🏏 Cricket Analytics  
+        - 🚗 Used Car Price Predictor (ML + Streamlit)
         """
     )
 
@@ -111,7 +103,7 @@ elif choice == "Skills":
         - Java  
         - JavaScript (ES6+)  
         - Bash / Shell scripting  
-        - Git & GitHub (version control)  
+        - Git & GitHub  
         """
     )
 
@@ -123,12 +115,11 @@ elif choice == "Skills":
         - PyTorch  
         - XGBoost • LightGBM • CatBoost  
         - Random Forests, Gradient Boosting Models  
-        - CNNs (image classification)  
-        - RNNs / LSTMs (sequence / text modelling)  
+        - CNNs, LSTMs, RNNs  
         - Transformers (BERT, HuggingFace)  
         - Feature engineering & selection  
         - Hyperparameter tuning (GridSearch, RandomSearch, Optuna)  
-        - Model evaluation metrics (accuracy, precision, recall, ROC-AUC, specificity, sensitivity)  
+        - Model evaluation (ROC-AUC, precision, recall, sensitivity, specificity)  
         """
     )
 
@@ -138,8 +129,8 @@ elif choice == "Skills":
         - Data cleaning & preprocessing  
         - Exploratory Data Analysis (EDA)  
         - Time-series analysis  
-        - Data visualization: Matplotlib, Seaborn, Plotly  
-        - Dashboard & visualization tools (Power BI, Tableau)  
+        - Matplotlib, Seaborn, Plotly  
+        - Power BI, Tableau  
         - Statistical inference, A/B testing  
         """
     )
@@ -149,9 +140,9 @@ elif choice == "Skills":
         """
         - SQL queries, joins, window functions  
         - PostgreSQL, MySQL  
-        - MongoDB (NoSQL)  
+        - MongoDB  
         - Apache Spark (PySpark)  
-        - ETL pipelines, data ingestion, warehousing concepts  
+        - ETL pipelines, data ingestion  
         """
     )
 
@@ -159,42 +150,41 @@ elif choice == "Skills":
     st.write(
         """
         - AWS (S3, EC2, Lambda, SageMaker)  
-        - Containerization: Docker  
-        - CI/CD workflows (GitHub Actions)  
-        - Model tracking & monitoring (MLflow)  
-        - Deployment: Streamlit, Flask APIs  
-        - Version control for data & models  
+        - Docker  
+        - CI/CD with GitHub Actions  
+        - MLflow  
+        - Streamlit deployment  
+        - Flask API development  
         """
     )
 
-    st.subheader("🎨 Frontend & Web App Skills")
+    st.subheader("🎨 Web & App Development")
     st.write(
         """
-        - Streamlit (interactive apps)  
+        - Streamlit apps  
         - HTML / CSS basics  
-        - JavaScript & React basics  
-        - Building end-to-end web app + ML integration  
+        - JavaScript basics  
         """
     )
 
     st.subheader("🧮 Math & Foundation")
     st.write(
         """
-        - Linear Algebra (vectors, matrices, eigen-values/vectors)  
-        - Multivariable Calculus (gradients, Jacobians)  
-        - Probability & Statistics (distributions, hypothesis testing)  
-        - Optimization methods (SGD, Adam, L-BFGS)  
+        - Linear Algebra  
+        - Multivariable Calculus  
+        - Probability & Statistics  
+        - Optimization  
         """
     )
 
-    st.subheader("🧩 Soft Skills & Professional Skills")
+    st.subheader("🧩 Soft Skills")
     st.write(
         """
-        - Problem solving & logical thinking  
-        - Communication & storytelling with data  
-        - Collaboration & teamwork  
-        - Presentation skills (technical & non-technical audiences)  
-        - Self-learning & initiative  
+        - Problem Solving  
+        - Communication  
+        - Team Collaboration  
+        - Presentation Skills  
+        - Self-Learning  
         """
     )
 
@@ -204,92 +194,77 @@ elif choice == "Skills":
 elif choice == "Projects":
     st.markdown('<p class="section-header">📂 Featured Projects</p>', unsafe_allow_html=True)
 
-    # Project 1
-    with st.container():
-        
-        st.markdown('<p class="project-title">1️⃣ Breast Cancer Prediction</p>', unsafe_allow_html=True)
-        st.write(
-            """
-            Built ML classification models to predict malignant vs benign tissue using the IDC dataset.  
-            Focus: feature engineering, model comparison (Logistic, RF, SVM), ROC-AUC, sensitivity/specificity.
+    st.markdown('<p class="project-title">1️⃣ Breast Cancer Prediction</p>', unsafe_allow_html=True)
+    st.write(
+        """
+        Machine learning models to classify malignant vs benign cancer cells.
 
-            🔗 GitHub: https://github.com/wasayfaizan/Breast-Cancer-Prediction
-            """
-        )
-        st.code("Tech: Python • Scikit-Learn • Pandas • Matplotlib • Jupyter Notebook")
-        st.markdown('</div>', unsafe_allow_html=True)
+        🔗 GitHub: https://github.com/wasayfaizan/Breast-Cancer-Prediction
+        """
+    )
+    st.code("Tech: Python • Scikit-Learn • Pandas • Matplotlib")
 
-    # Project 2
-    with st.container():
-        
-        st.markdown('<p class="project-title">2️⃣ Sentiment Analysis on Tweets (LSTM)</p>', unsafe_allow_html=True)
-        st.write(
-            """
-            Used Sentiment140 dataset. Developed and trained an LSTM model to classify tweets as positive, negative, neutral.  
-            Special focus on text cleaning, embeddings, and hyperparameter tuning.
+    st.markdown('<p class="project-title">2️⃣ Sentiment Analysis (LSTM)</p>', unsafe_allow_html=True)
+    st.write(
+        """
+        Sentiment140 dataset with deep learning LSTM model for sentiment prediction.
 
-            🔗 GitHub: https://github.com/wasayfaizan/Sentiment-Analysis-on-Tweets-using-LSTM
-            """
-        )
-        st.code("Tech: Python • TensorFlow/Keras • NLP • LSTM • Text Preprocessing")
-        st.markdown('</div>', unsafe_allow_html=True)
+        🔗 GitHub: https://github.com/wasayfaizan/Sentiment-Analysis-on-Tweets-using-LSTM
+        """
+    )
+    st.code("Tech: Python • TensorFlow • NLP • LSTM")
 
-    # Project 3
-    with st.container():
-        
-        st.markdown('<p class="project-title">3️⃣ Teen Smartphone Addiction Predictor</p>', unsafe_allow_html=True)
-        st.write(
-            """
-            ML models trained to detect teen smartphone addiction levels based on behavioural, emotional, and usage data.
+    st.markdown('<p class="project-title">3️⃣ Teen Smartphone Addiction Predictor</p>', unsafe_allow_html=True)
+    st.write(
+        """
+        ML models predicting smartphone addiction levels in teenagers.
 
-            🔗 GitHub: https://github.com/wasayfaizan/Teen-Phone-Addiction-Predictor
-            """
-        )
-        st.code("Tech: Python • Pandas • Scikit-Learn • EDA • Streamlit")
-        st.markdown('</div>', unsafe_allow_html=True)
+        🔗 GitHub: https://github.com/wasayfaizan/Teen-Phone-Addiction-Predictor
+        """
+    )
+    st.code("Tech: Python • Pandas • Scikit-Learn • Streamlit")
 
-    # Project 4
-    with st.container():
-        
-        st.markdown('<p class="project-title">4️⃣ Netflix Data Insights</p>', unsafe_allow_html=True)
-        st.write(
-            """
-            Performed full exploratory data analysis on Netflix dataset: genres, countries, durations, actors, release trends etc.
+    st.markdown('<p class="project-title">4️⃣ Netflix Data Insights</p>', unsafe_allow_html=True)
+    st.write(
+        """
+        Full dataset analysis on Netflix shows and movies.
 
-            🔗 GitHub: https://github.com/wasayfaizan/Netflix-data-insights
-            """
-        )
-        st.code("Tech: Python • Pandas • Seaborn • Plotly • EDA")
-        st.markdown('</div>', unsafe_allow_html=True)
+        🔗 GitHub: https://github.com/wasayfaizan/Netflix-data-insights
+        """
+    )
+    st.code("Tech: Python • Pandas • Seaborn • Plotly")
 
-    # Project 5
-    with st.container():
-        
-        st.markdown('<p class="project-title">5️⃣ Used Car Price Predictor</p>', unsafe_allow_html=True)
-        st.write(
-            """
-            End-to-end ML regression system for predicting used car prices (with a Streamlit interface).  
-            Includes preprocessing, model comparison, and predictions.
+    st.markdown('<p class="project-title">5️⃣ Used Car Price Predictor</p>', unsafe_allow_html=True)
+    st.write(
+        """
+        ML regression model predicting used car prices.
 
-            🔗 GitHub: https://github.com/wasayfaizan/Cars-Price-Predictor-ML
-            """
-        )
-        st.code("Tech: Python • Regression • XGBoost • Data Cleaning • Streamlit")
-        st.markdown('</div>', unsafe_allow_html=True)
+        🔗 GitHub: https://github.com/wasayfaizan/Cars-Price-Predictor-ML
+        """
+    )
+    st.code("Tech: Python • Regression • XGBoost • Streamlit")
 
 # -------------------------
 # Resume
 # -------------------------
 elif choice == "Resume":
     st.markdown('<p class="section-header">📄 Resume</p>', unsafe_allow_html=True)
-
     st.write("You can download my resume below:")
 
     resume_file = "Portfoliio/resume.pdf"
+
     try:
         with open(resume_file, "rb") as f:
-            st.download_button("⬇️ Download My Resume", f, file_name="Abdul_Wasay_Resume.pdf")
-    
+            st.download_button(
+                label="⬇️ Download My Resume",
+                data=f,
+                file_name="Abdul_Wasay_Resume.pdf",
+                mime="application/pdf"
+            )
+    except FileNotFoundError:
+        st.error("❌ Resume not found. Make sure `Portfoliio/resume.pdf` exists.")
+    except Exception as e:
+        st.error(f"⚠️ Error: {e}")
 
 # -------------------------
 # Contact
@@ -297,7 +272,6 @@ elif choice == "Resume":
 elif choice == "Contact":
     st.markdown('<p class="section-header">📬 Contact Me</p>', unsafe_allow_html=True)
 
-    st.write("Let's connect!")
     st.write("📧 Email: **a.wasayfaizan@hotmail.com**")
     st.write("🔗 LinkedIn: https://linkedin.com/in/abdul-wasay")
     st.write("💻 GitHub: https://github.com/wasayfaizan")
