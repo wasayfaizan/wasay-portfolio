@@ -12,20 +12,40 @@ st.set_page_config(
 )
 
 # -------------------------
-# Custom CSS Styling
+# Custom CSS Styling (WITH ANIMATIONS)
 # -------------------------
 st.markdown("""
     <style>
+
+    /* ---------- Animations ---------- */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ---------- Title Styles ---------- */
     .big-title {
         font-size: 48px !important;
         font-weight: 700 !important;
         color: #1f2937 !important;
+        animation: fadeIn 1s ease-in-out;
     }
     .sub-title {
         font-size: 22px !important;
         font-weight: 400 !important;
         color: #4b5563 !important;
+        animation: fadeIn 1.4s ease-in-out;
     }
+
+    /* ---------- Section Header ---------- */
     .section-header {
         font-size: 32px !important;
         font-weight: 600 !important;
@@ -33,12 +53,36 @@ st.markdown("""
         color: #111827;
         padding-bottom: 8px;
         border-bottom: 2px solid #e5e7eb;
+        animation: slideIn 0.8s ease-out;
     }
+
+    /* ---------- Project Cards ---------- */
+    .project-box {
+        background-color: #f9fafb;
+        padding: 18px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #e5e7eb;
+        transition: transform 0.25s, box-shadow 0.25s;
+        animation: fadeInUp 0.8s ease-out;
+    }
+    .project-box:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
     .project-title {
         font-size: 22px !important;
         font-weight: 600 !important;
         margin-bottom: 5px;
+        animation: fadeInUp 0.6s ease-out;
     }
+
+    /* ---------- Text + Buttons ---------- */
+    .stMarkdown, .stButton, .stImage, .stDownloadButton {
+        animation: fadeInUp 0.8s ease-out;
+    }
+
     </style>
 """, unsafe_allow_html=True)
 
@@ -48,10 +92,8 @@ st.markdown("""
 st.markdown('<p class="big-title">👋 Hi, I\'m <b>Abdul Wasay</b></p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Data Science • Machine Learning • Deep Learning • AI</p>',
             unsafe_allow_html=True)
-st.write(
-    "I'm a Computer Science student at York University with a strong passion for Data Science, Machine Learning, "
-    "Deep Learning, and Applied Mathematics."
-)
+st.write("I'm a Computer Science student at York University with a strong passion for Data Science, Machine Learning, "
+         "Deep Learning, and Applied Mathematics.")
 st.write("---")
 
 # -------------------------
@@ -66,8 +108,7 @@ choice = st.sidebar.radio("Select a section:", pages)
 # -------------------------
 if choice == "About Me":
     st.markdown('<p class="section-header">📌 About Me</p>', unsafe_allow_html=True)
-    st.write(
-        """
+    st.write("""
         I'm a 5th-year Computer Science student at **York University** with a minor in Applied Mathematics.  
         My main interests include:
 
@@ -82,11 +123,10 @@ if choice == "About Me":
         - 🧠 Sentiment Analysis with BERT  
         - 🔬 Breast Cancer Detection using CNNs  
         - 🏡 Airbnb Price Analysis  
-        - ❤️ Heart Disease Prediction Models  
+        - ❤️ Heart Disease Prediction  
         - 🏏 Cricket Analytics  
         - 🚗 Used Car Price Predictor (ML + Streamlit)
-        """
-    )
+    """)
 
 # -------------------------
 # Skills
@@ -95,98 +135,62 @@ elif choice == "Skills":
     st.markdown('<p class="section-header">🧠 Skills</p>', unsafe_allow_html=True)
 
     st.subheader("💻 Programming Languages & Tools")
-    st.write(
-        """
+    st.write("""
         - Python (NumPy, Pandas, Scikit-Learn)  
         - R  
         - SQL (PostgreSQL, MySQL)  
         - Java  
         - JavaScript (ES6+)  
-        - Bash / Shell scripting  
+        - Bash / Shell  
         - Git & GitHub  
-        """
-    )
+    """)
 
     st.subheader("🤖 Machine Learning & Deep Learning")
-    st.write(
-        """
-        - Scikit-Learn (Regression, Classification, Clustering)  
+    st.write("""
+        - Scikit-Learn  
         - TensorFlow / Keras  
         - PyTorch  
-        - XGBoost • LightGBM • CatBoost  
-        - Random Forests, Gradient Boosting Models  
+        - XGBoost, LightGBM, CatBoost  
         - CNNs, LSTMs, RNNs  
-        - Transformers (BERT, HuggingFace)  
-        - Feature engineering & selection  
-        - Hyperparameter tuning (GridSearch, RandomSearch, Optuna)  
-        - Model evaluation (ROC-AUC, precision, recall, sensitivity, specificity)  
-        """
-    )
+        - BERT & Transformers  
+        - Hyperparameter tuning (GridSearch, Optuna)  
+    """)
 
-    st.subheader("📊 Data Science, Analytics & Visualization")
-    st.write(
-        """
-        - Data cleaning & preprocessing  
-        - Exploratory Data Analysis (EDA)  
-        - Time-series analysis  
+    st.subheader("📊 Data Science & Visualization")
+    st.write("""
+        - Data Cleaning  
+        - EDA  
+        - Time-Series Analysis  
         - Matplotlib, Seaborn, Plotly  
         - Power BI, Tableau  
-        - Statistical inference, A/B testing  
-        """
-    )
+        - A/B Testing  
+    """)
 
     st.subheader("🗄️ Databases & Data Engineering")
-    st.write(
-        """
-        - SQL queries, joins, window functions  
+    st.write("""
+        - SQL (joins, CTEs, window functions)  
         - PostgreSQL, MySQL  
         - MongoDB  
         - Apache Spark (PySpark)  
-        - ETL pipelines, data ingestion  
-        """
-    )
+        - ETL pipelines  
+    """)
 
-    st.subheader("☁️ Cloud, DevOps & MLOps")
-    st.write(
-        """
+    st.subheader("☁️ Cloud & DevOps / MLOps")
+    st.write("""
         - AWS (S3, EC2, Lambda, SageMaker)  
         - Docker  
-        - CI/CD with GitHub Actions  
+        - GitHub Actions (CI/CD)  
         - MLflow  
         - Streamlit deployment  
-        - Flask API development  
-        """
-    )
+    """)
 
-    st.subheader("🎨 Web & App Development")
-    st.write(
-        """
-        - Streamlit apps  
-        - HTML / CSS basics  
-        - JavaScript basics  
-        """
-    )
-
-    st.subheader("🧮 Math & Foundation")
-    st.write(
-        """
+    st.subheader("🧮 Math Foundation")
+    st.write("""
         - Linear Algebra  
-        - Multivariable Calculus  
+        - Calculus  
         - Probability & Statistics  
         - Optimization  
-        """
-    )
-
-    st.subheader("🧩 Soft Skills")
-    st.write(
-        """
-        - Problem Solving  
-        - Communication  
-        - Team Collaboration  
-        - Presentation Skills  
-        - Self-Learning  
-        """
-    )
+    """)
 
 # -------------------------
 # Projects
@@ -194,55 +198,50 @@ elif choice == "Skills":
 elif choice == "Projects":
     st.markdown('<p class="section-header">📂 Featured Projects</p>', unsafe_allow_html=True)
 
+    st.markdown('<div class="project-box">', unsafe_allow_html=True)
     st.markdown('<p class="project-title">1️⃣ Breast Cancer Prediction</p>', unsafe_allow_html=True)
-    st.write(
-        """
-        Machine learning models to classify malignant vs benign cancer cells.
-
+    st.write("""
+        ML model predicting malignant vs benign cancer cells.  
         🔗 GitHub: https://github.com/wasayfaizan/Breast-Cancer-Prediction
-        """
-    )
+    """)
     st.code("Tech: Python • Scikit-Learn • Pandas • Matplotlib")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="project-box">', unsafe_allow_html=True)
     st.markdown('<p class="project-title">2️⃣ Sentiment Analysis (LSTM)</p>', unsafe_allow_html=True)
-    st.write(
-        """
-        Sentiment140 dataset with deep learning LSTM model for sentiment prediction.
-
+    st.write("""
+        Deep learning LSTM model on Sentiment140 dataset.  
         🔗 GitHub: https://github.com/wasayfaizan/Sentiment-Analysis-on-Tweets-using-LSTM
-        """
-    )
+    """)
     st.code("Tech: Python • TensorFlow • NLP • LSTM")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="project-box">', unsafe_allow_html=True)
     st.markdown('<p class="project-title">3️⃣ Teen Smartphone Addiction Predictor</p>', unsafe_allow_html=True)
-    st.write(
-        """
-        ML models predicting smartphone addiction levels in teenagers.
-
+    st.write("""
+        Predicting addiction levels using ML.  
         🔗 GitHub: https://github.com/wasayfaizan/Teen-Phone-Addiction-Predictor
-        """
-    )
-    st.code("Tech: Python • Pandas • Scikit-Learn • Streamlit")
+    """)
+    st.code("Tech: Python • Scikit-Learn • EDA • Streamlit")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="project-box">', unsafe_allow_html=True)
     st.markdown('<p class="project-title">4️⃣ Netflix Data Insights</p>', unsafe_allow_html=True)
-    st.write(
-        """
-        Full dataset analysis on Netflix shows and movies.
-
+    st.write("""
+        Full EDA on Netflix dataset.  
         🔗 GitHub: https://github.com/wasayfaizan/Netflix-data-insights
-        """
-    )
+    """)
     st.code("Tech: Python • Pandas • Seaborn • Plotly")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="project-box">', unsafe_allow_html=True)
     st.markdown('<p class="project-title">5️⃣ Used Car Price Predictor</p>', unsafe_allow_html=True)
-    st.write(
-        """
-        ML regression model predicting used car prices.
-
+    st.write("""
+        ML regression model predicting used car prices.  
         🔗 GitHub: https://github.com/wasayfaizan/Cars-Price-Predictor-ML
-        """
-    )
+    """)
     st.code("Tech: Python • Regression • XGBoost • Streamlit")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # -------------------------
 # Resume
@@ -261,10 +260,8 @@ elif choice == "Resume":
                 file_name="Abdul_Wasay_Resume.pdf",
                 mime="application/pdf"
             )
-    except FileNotFoundError:
-        st.error("❌ Resume not found. Make sure `Portfoliio/resume.pdf` exists.")
-    except Exception as e:
-        st.error(f"⚠️ Error: {e}")
+    except:
+        st.error("❌ Resume not found. Ensure it exists at: Portfoliio/resume.pdf")
 
 # -------------------------
 # Contact
