@@ -31,18 +31,32 @@ st.markdown("""
         to   { opacity: 1; transform: translateX(0); }
     }
 
+    /* ---------- NEW Typing Effect ---------- */
+    .typewriter {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #4b5563;
+        font-size: 22px !important;
+        font-weight: 400 !important;
+        color: #4b5563;
+        animation: typing 3s steps(40, end), blink .75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to   { width: 100%; }
+    }
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
     /* ---------- Title Styles ---------- */
     .big-title {
         font-size: 48px !important;
         font-weight: 700 !important;
         color: #1f2937 !important;
         animation: fadeIn 1s ease-in-out;
-    }
-    .sub-title {
-        font-size: 22px !important;
-        font-weight: 400 !important;
-        color: #4b5563 !important;
-        animation: fadeIn 1.4s ease-in-out;
     }
 
     /* ---------- Section Header ---------- */
@@ -78,11 +92,6 @@ st.markdown("""
         animation: fadeInUp 0.6s ease-out;
     }
 
-    /* ---------- Text + Buttons ---------- */
-    .stMarkdown, .stButton, .stImage, .stDownloadButton {
-        animation: fadeInUp 0.8s ease-out;
-    }
-
     </style>
 """, unsafe_allow_html=True)
 
@@ -90,10 +99,17 @@ st.markdown("""
 # Header Section
 # -------------------------
 st.markdown('<p class="big-title">👋 Hi, I\'m <b>Abdul Wasay</b></p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-title">Data Science • Machine Learning • Deep Learning • AI</p>',
-            unsafe_allow_html=True)
-st.write("I'm a Computer Science student at York University with a strong passion for Data Science, Machine Learning, "
-         "Deep Learning, and Applied Mathematics.")
+
+# ⭐ REPLACED SUBTITLE WITH TYPING ANIMATION
+st.markdown(
+    '<p class="typewriter">Data Science • Machine Learning • Deep Learning • AI</p>',
+    unsafe_allow_html=True
+)
+
+st.write(
+    "I'm a Computer Science student at York University with a strong passion for Data Science, Machine Learning, "
+    "Deep Learning, and Applied Mathematics."
+)
 st.write("---")
 
 # -------------------------
