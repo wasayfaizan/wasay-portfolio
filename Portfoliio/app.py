@@ -286,7 +286,7 @@ elif choice == "Contact":
     st.markdown('<p class="section-header">📬 Contact Me</p>', unsafe_allow_html=True)
 
     st.write("📧 Email: **a.wasayfaizan@hotmail.com**")
-    st.write("🔗 LinkedIn: https://linkedin.com/in/abdul-wasay")
+    st.write("🔗 LinkedIn: https://linkedin.com/in/wasayfaizan")
     st.write("💻 GitHub: https://github.com/wasayfaizan")
     st.write("---")
     st.write("✨ Thank you for visiting my portfolio!")
