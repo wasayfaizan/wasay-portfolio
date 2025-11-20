@@ -289,8 +289,7 @@ elif choice == "Resume":
     try:
         with open(resume_file, "rb") as f:
             st.download_button("⬇️ Download My Resume", f, file_name="Abdul_Wasay_Resume.pdf")
-    except:
-        st.info("Upload a file named `resume.pdf` into your project folder.")
+    
 
 # -------------------------
 # Contact
