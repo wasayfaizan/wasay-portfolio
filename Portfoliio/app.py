@@ -212,7 +212,7 @@ elif choice == "Skills":
 # Projects
 # -------------------------
 elif choice == "Projects":
-    st.markdown('<p class="section-header">📂 Featured Projects</p>', unsafe_allow_html=True)
+    
 
     st.markdown('<div class="project-box">', unsafe_allow_html=True)
     st.markdown('<p class="project-title">1️⃣ Breast Cancer Prediction</p>', unsafe_allow_html=True)
@@ -223,7 +223,7 @@ elif choice == "Projects":
     st.code("Tech: Python • Scikit-Learn • Pandas • Matplotlib")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="project-box">', unsafe_allow_html=True)
+    
     st.markdown('<p class="project-title">2️⃣ Sentiment Analysis (LSTM)</p>', unsafe_allow_html=True)
     st.write("""
         Deep learning LSTM model on Sentiment140 dataset.  
@@ -241,7 +241,7 @@ elif choice == "Projects":
     st.code("Tech: Python • Scikit-Learn • EDA • Streamlit")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="project-box">', unsafe_allow_html=True)
+    
     st.markdown('<p class="project-title">4️⃣ Netflix Data Insights</p>', unsafe_allow_html=True)
     st.write("""
         Full EDA on Netflix dataset.  
@@ -250,7 +250,7 @@ elif choice == "Projects":
     st.code("Tech: Python • Pandas • Seaborn • Plotly")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="project-box">', unsafe_allow_html=True)
+    
     st.markdown('<p class="project-title">5️⃣ Used Car Price Predictor</p>', unsafe_allow_html=True)
     st.write("""
         ML regression model predicting used car prices.  
