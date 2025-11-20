@@ -102,22 +102,101 @@ if choice == "About Me":
 elif choice == "Skills":
     st.markdown('<p class="section-header">🧠 Skills</p>', unsafe_allow_html=True)
 
-    st.subheader("Programming Languages")
-    st.write("🐍 Python • 🐧 R • 🗄 SQL • ☕ Java • 🌐 JavaScript")
-
-    st.subheader("Machine Learning & Deep Learning")
+    st.subheader("💻 Programming Languages & Tools")
     st.write(
-        "Scikit-Learn • TensorFlow/Keras • PyTorch • XGBoost • Random Forests • CNNs • LSTMs • BERT • Transformers"
+        """
+        - Python (NumPy, Pandas, Scikit-Learn)  
+        - R  
+        - SQL (PostgreSQL, MySQL)  
+        - Java  
+        - JavaScript (ES6+)  
+        - Bash / Shell scripting  
+        - Git & GitHub (version control)  
+        """
     )
 
-    st.subheader("Data Science & Analysis")
-    st.write("Pandas • NumPy • Matplotlib • Seaborn • Plotly • EDA • Statistics • Feature Engineering")
+    st.subheader("🤖 Machine Learning & Deep Learning")
+    st.write(
+        """
+        - Scikit-Learn (Regression, Classification, Clustering)  
+        - TensorFlow / Keras  
+        - PyTorch  
+        - XGBoost • LightGBM • CatBoost  
+        - Random Forests, Gradient Boosting Models  
+        - CNNs (image classification)  
+        - RNNs / LSTMs (sequence / text modelling)  
+        - Transformers (BERT, HuggingFace)  
+        - Feature engineering & selection  
+        - Hyperparameter tuning (GridSearch, RandomSearch, Optuna)  
+        - Model evaluation metrics (accuracy, precision, recall, ROC-AUC, specificity, sensitivity)  
+        """
+    )
 
-    st.subheader("Cloud & Tools")
-    st.write("AWS • Git/GitHub • Jupyter • Streamlit • VSCode • Google Colab")
+    st.subheader("📊 Data Science, Analytics & Visualization")
+    st.write(
+        """
+        - Data cleaning & preprocessing  
+        - Exploratory Data Analysis (EDA)  
+        - Time-series analysis  
+        - Data visualization: Matplotlib, Seaborn, Plotly  
+        - Dashboard & visualization tools (Power BI, Tableau)  
+        - Statistical inference, A/B testing  
+        """
+    )
 
-    st.subheader("Math Foundations")
-    st.write("Linear Algebra • Calculus • Probability • Optimization")
+    st.subheader("🗄️ Databases & Data Engineering")
+    st.write(
+        """
+        - SQL queries, joins, window functions  
+        - PostgreSQL, MySQL  
+        - MongoDB (NoSQL)  
+        - Apache Spark (PySpark)  
+        - ETL pipelines, data ingestion, warehousing concepts  
+        """
+    )
+
+    st.subheader("☁️ Cloud, DevOps & MLOps")
+    st.write(
+        """
+        - AWS (S3, EC2, Lambda, SageMaker)  
+        - Containerization: Docker  
+        - CI/CD workflows (GitHub Actions)  
+        - Model tracking & monitoring (MLflow)  
+        - Deployment: Streamlit, Flask APIs  
+        - Version control for data & models  
+        """
+    )
+
+    st.subheader("🎨 Frontend & Web App Skills")
+    st.write(
+        """
+        - Streamlit (interactive apps)  
+        - HTML / CSS basics  
+        - JavaScript & React basics  
+        - Building end-to-end web app + ML integration  
+        """
+    )
+
+    st.subheader("🧮 Math & Foundation")
+    st.write(
+        """
+        - Linear Algebra (vectors, matrices, eigen-values/vectors)  
+        - Multivariable Calculus (gradients, Jacobians)  
+        - Probability & Statistics (distributions, hypothesis testing)  
+        - Optimization methods (SGD, Adam, L-BFGS)  
+        """
+    )
+
+    st.subheader("🧩 Soft Skills & Professional Skills")
+    st.write(
+        """
+        - Problem solving & logical thinking  
+        - Communication & storytelling with data  
+        - Collaboration & teamwork  
+        - Presentation skills (technical & non-technical audiences)  
+        - Self-learning & initiative  
+        """
+    )
 
 # -------------------------
 # Projects
