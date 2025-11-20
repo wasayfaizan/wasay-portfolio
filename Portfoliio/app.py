@@ -285,7 +285,7 @@ elif choice == "Resume":
 
     st.write("You can download my resume below:")
 
-    resume_file = "resume.pdf"
+    resume_file = "Portfoliio/resume.pdf"
     try:
         with open(resume_file, "rb") as f:
             st.download_button("⬇️ Download My Resume", f, file_name="Abdul_Wasay_Resume.pdf")
