@@ -31,28 +31,25 @@ st.markdown("""
         to   { opacity: 1; transform: translateX(0); }
     }
 
-   /* Typing effect that stays */
-.typewriter {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid #4b5563;
-    font-size: 22px !important;
-    font-weight: 400 !important;
-    width: 0;
-    animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-}
+    /* ---------- NEW Typing Effect ---------- */
+    .typewriter {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #4b5563;
+        font-size: 22px !important;
+        font-weight: 400 !important;
+        color: #4b5563;
+        animation: typing 3s steps(40, end), blink .75s step-end infinite;
+    }
 
-/* typing only once */
-@keyframes typing {
-    from { width: 0; }
-    to   { width: 100%; }
-}
-
-/* blinking cursor stays */
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
+    @keyframes typing {
+        from { width: 0; }
+        to   { width: 100%; }
+    }
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
 
     /* ---------- Title Styles ---------- */
     .big-title {
@@ -103,12 +100,11 @@ st.markdown("""
 # -------------------------
 st.markdown('<p class="big-title">👋 Hi, I\'m <b>Abdul Wasay</b></p>', unsafe_allow_html=True)
 
-
+# ⭐ REPLACED SUBTITLE WITH TYPING ANIMATION
 st.markdown(
     '<p class="typewriter">Data Science • Machine Learning • Deep Learning • AI</p>',
     unsafe_allow_html=True
 )
-
 
 st.write(
     "I'm a Computer Science student at York University with a strong passion for Data Science, Machine Learning, "
@@ -216,9 +212,9 @@ elif choice == "Skills":
 # Projects
 # -------------------------
 elif choice == "Projects":
-    
+    st.markdown('<p class="section-header">📂 Featured Projects</p>', unsafe_allow_html=True)
 
-    st.markdown('<div class="project-box">', unsafe_allow_html=True)
+    
     st.markdown('<p class="project-title">1️⃣ Breast Cancer Prediction</p>', unsafe_allow_html=True)
     st.write("""
         ML model predicting malignant vs benign cancer cells.  
@@ -236,7 +232,7 @@ elif choice == "Projects":
     st.code("Tech: Python • TensorFlow • NLP • LSTM")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="project-box">', unsafe_allow_html=True)
+    
     st.markdown('<p class="project-title">3️⃣ Teen Smartphone Addiction Predictor</p>', unsafe_allow_html=True)
     st.write("""
         Predicting addiction levels using ML.  
