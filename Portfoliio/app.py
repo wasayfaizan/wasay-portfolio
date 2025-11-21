@@ -50,20 +50,58 @@ body {
 }
 
 /* ----------- Cards (Glassmorphism) ----------- */
+/* ----------- Project Card Animations ----------- */
 .card {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);  
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 18px;
     padding: 22px;
     border: 1px solid rgba(255,255,255,0.35);
-    transition: 0.25s ease;
+
+    /* Animation + Appearance */
+    transition: transform 0.35s cubic-bezier(0.2, 0.6, 0.4, 1),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
     box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Floating Animation on Hover */
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    border-color: rgba(255,255,255,0.55);
+}
+
+/* Glow highlight on hover */
+.card:hover::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.35),
+        transparent 70%
+    );
+    opacity: 0.25;
+    animation: glowMove 1.3s ease-out forwards;
+}
+
+/* Glow movement animation */
+@keyframes glowMove {
+    from {
+        transform: translate(-20%, -20%) scale(0.4);
+        opacity: 0.18;
+    }
+    to {
+        transform: translate(20%, 20%) scale(1);
+        opacity: 0;
+    }
 }
 
 /* ----------- Buttons ----------- */
