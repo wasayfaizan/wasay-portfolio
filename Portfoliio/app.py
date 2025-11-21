@@ -94,6 +94,9 @@ body {
 /* ------------------------------------------------------
    PROJECT CARDS - PREMIUM
 ------------------------------------------------------ */
+/* ------------------------------------------------------
+   MODERN PREMIUM PROJECT CARDS (NO NEON)
+------------------------------------------------------ */
 .card {
     background: rgba(255,255,255,0.45);
     backdrop-filter: blur(14px);
@@ -104,77 +107,54 @@ body {
     position: relative;
     overflow: hidden;
 
-    transform-style: preserve-3d;
-    transition: 
-        transform 0.45s cubic-bezier(0.2, 0.6, 0.4, 1),
-        box-shadow 0.45s ease,
-        border-color 0.35s ease;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-
-    /* Staggered fade-in */
+    /* Smooth entrance */
     opacity: 0;
-    animation: fadeCard 0.9s ease forwards;
+    animation: fadeCard 0.8s ease forwards;
+
+    /* Modern hover interaction setup */
+    transition:
+        transform 0.35s cubic-bezier(0.2, 0.6, 0.4, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
 }
 
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.25s; }
-.card:nth-child(3) { animation-delay: 0.4s; }
-.card:nth-child(4) { animation-delay: 0.55s; }
-.card:nth-child(5) { animation-delay: 0.7s; }
-.card:nth-child(6) { animation-delay: 0.85s; }
-
+/* Premium smooth fade-in */
 @keyframes fadeCard {
     from { opacity: 0; transform: translateY(25px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 3D Hover Tilt + Lift */
+/* Modern hover effects */
 .card:hover {
-    transform: translateY(-12px) scale(1.04) rotateX(6deg);
-    box-shadow: 0 25px 55px rgba(0,0,0,0.18);
+    transform: translateY(-10px) scale(1.025);  /* smooth & clean */
     border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.55);
+
+    /* Modern soft shadow */
+    box-shadow:
+        0 12px 24px rgba(0,0,0,0.10),
+        0 20px 40px rgba(0,0,0,0.07);
 }
 
-/* Neon sweep glow */
-.card:hover::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 220%;
-    height: 220%;
-    background: radial-gradient(
-        circle at center,
-        rgba(255,255,255,0.55),
-        transparent 75%
-    );
-    opacity: 0.18;
-    animation: neonSweep 1.4s ease-out forwards;
-}
-
-@keyframes neonSweep {
-    from { transform: translate(-20%, -20%) scale(0.5); opacity: 0.2; }
-    to   { transform: translate(20%, 20%) scale(1); opacity: 0; }
-}
-
-/* Animated border glow */
-.card::after {
+/* Subtle “glass highlight sweep” (no glow, soft + professional) */
+.card::before {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 22px;
-    padding: 2px;
-    background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
-    mask: linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    animation: borderGlow 5s infinite linear;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.15),
+        rgba(255,255,255,0.03)
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
-@keyframes borderGlow {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
+.card:hover::before {
+    opacity: 1;
 }
+
 
 /* ------------------------------------------------------
    BUTTONS
