@@ -162,36 +162,59 @@ if choice == "About Me":
 # ---------------------------------------------------------
 # Skills
 # ---------------------------------------------------------
+# ---------------------------------------------------------
+# Skills
+# ---------------------------------------------------------
 elif choice == "Skills":
     st.markdown('<div class="section-header">🧠 Skills</div>', unsafe_allow_html=True)
 
-    cols = st.columns(2)
+    col1, col2 = st.columns(2)
 
-    with cols[0]:
+    with col1:
         st.markdown("""
         <div class="card">
         <h4>💻 Programming Languages & Tools</h4>
-        Python • R • SQL • Java • JS • Bash • Git
+        Python (NumPy, Pandas, Scikit-Learn) • R • SQL (PostgreSQL, MySQL) • Java •  
+        JavaScript (ES6+) • Bash / Shell • Git & GitHub
         </div><br>
-        
+
         <div class="card">
         <h4>📊 Data Science & Visualization</h4>
-        Pandas • NumPy • EDA • Plotly • Seaborn • Power BI
+        Data Cleaning • EDA • Time-Series Analysis • Matplotlib • Seaborn • Plotly •  
+        Power BI • Tableau • A/B Testing
+        </div><br>
+
+        <div class="card">
+        <h4>🧮 Math Foundation</h4>
+        Linear Algebra • Calculus • Probability & Statistics • Optimization
         </div>
         """, unsafe_allow_html=True)
 
-    with cols[1]:
+    with col2:
         st.markdown("""
         <div class="card">
         <h4>🤖 Machine Learning & Deep Learning</h4>
-        Scikit-Learn • TensorFlow • Keras • PyTorch • XGBoost • CNNs • BERT
+        Scikit-Learn • TensorFlow • Keras • PyTorch •  
+        XGBoost • LightGBM • CatBoost •  
+        CNNs • LSTMs • RNNs •  
+        BERT & Transformers •  
+        Hyperparameter Tuning (GridSearchCV, Optuna)
+        </div><br>
+
+        <div class="card">
+        <h4>🗄️ Databases & Data Engineering</h4>
+        SQL (joins, CTEs, window functions) • PostgreSQL • MySQL • MongoDB •  
+        Apache Spark (PySpark) • ETL Pipelines
         </div><br>
 
         <div class="card">
         <h4>☁️ Cloud & MLOps</h4>
-        AWS • Docker • GitHub Actions • MLflow • Streamlit
+        AWS (S3, EC2, Lambda, SageMaker) •  
+        Docker • GitHub Actions (CI/CD) •  
+        MLflow • Streamlit Deployment
         </div>
         """, unsafe_allow_html=True)
+
 
 # ---------------------------------------------------------
 # Projects
