@@ -230,12 +230,6 @@ elif choice == "Courses":
             <li>Computer Vision Training (Udemy)</li>
             <li>Power BI Data Visualization Certification</li>
             <li>OpenAI & Generative AI Developer Course</li>
-            <li>Applied Machine Learning (University Course)</li>
-            <li>Data Mining (University Course)</li>
-            <li>Data Analytics: A Hands-On Approach</li>
-            <li>Big Data Systems</li>
-            <li>Linear Optimization (Simplex + Dual Simplex)</li>
-            <li>Regression & Residual Analysis</li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -269,23 +263,7 @@ elif choice == "Projects":
 
         ("Heart Disease Prediction", "Logistic regression & ML",
          "https://github.com/wasayfaizan/Heart-Disease-Prediction",
-         "Python • Scikit-Learn"),
-
-        ("Airbnb Price Analysis", "NYC Airbnb dataset analysis",
-         "https://github.com/wasayfaizan/Airbnb-Price-Analysis",
-         "Python • EDA • Regression"),
-
-        ("Cricket Analytics", "Cricket datasets and visualization",
-         "https://github.com/wasayfaizan/Cricket-Analytics",
-         "Pandas • Matplotlib • Sports Analytics"),
-
-        ("AI Moodboard Generator", "Generative AI with Streamlit",
-         "https://github.com/wasayfaizan/ai-moodboard-generator",
-         "OpenAI API • CLIP • Diffusers • Streamlit"),
-
-        ("Toronto Subway Delay Analysis", "Transit data analytics",
-         "https://github.com/wasayfaizan/TTC-Subway-Delay-Analysis",
-         "Python • Data Cleaning • Visualization")
+         "Python • Scikit-Learn")
     ]
 
     for title, desc, link, tech in projects:
