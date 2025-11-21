@@ -53,7 +53,7 @@ body {
 .card {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backkit-filter: blur(12px);
     border-radius: 18px;
     padding: 22px;
     border: 1px solid rgba(255,255,255,0.35);
@@ -81,24 +81,24 @@ body {
 
 /* ----------- Typing Animation ----------- */
 .typewriter {
-  overflow: hidden;
-  border-right: 3px solid white;
-  white-space: nowrap;
-  animation: typing 3s steps(30), blink .75s step-end infinite;
-  font-size: 26px;
+    overflow: hidden;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    animation: typing 3s steps(30), blink .75s step-end infinite;
+    font-size: 26px;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+    from { width: 0 }
+    to { width: 100% }
 }
 @keyframes blink {
-  50% { border-color: transparent }
+    50% { border-color: transparent }
 }
 
 @keyframes fadeIn {
-  from { opacity:0; transform: translateY(10px); }
-  to   { opacity:1; transform: translateY(0); }
+    from { opacity:0; transform: translateY(10px); }
+    to   { opacity:1; transform: translateY(0); }
 }
 
 </style>
@@ -122,7 +122,7 @@ st.markdown("""
 # Sidebar Navigation
 # ---------------------------------------------------------
 st.sidebar.title("📌 Navigation")
-pages = ["About Me", "Skills", "Projects", "Resume", "Contact"]
+pages = ["About Me", "Skills", "Courses", "Projects", "Resume", "Contact"]
 choice = st.sidebar.radio("Select a section:", pages)
 
 # ---------------------------------------------------------
@@ -135,7 +135,7 @@ if choice == "About Me":
     <div class="card">
         <p>
         I'm a 5th-year Computer Science student at <b>York University</b> with a minor in Applied Mathematics.<br><br>
-        
+
         My main interests include:
         <ul>
             <li>🤖 Machine Learning</li>
@@ -145,11 +145,11 @@ if choice == "About Me":
             <li>🏥 AI for Healthcare</li>
             <li>🏏 Sports Analytics</li>
         </ul>
-        
+
         High-impact projects I've worked on:
         <ul>
             <li>🧠 Sentiment Analysis with BERT</li>
-            <li>🔬 Breast Cancer Detection (CNN)</li>
+            <li>🔬 Breast Cancer Detection using CNNs</li>
             <li>🏡 Airbnb Price Analysis</li>
             <li>❤️ Heart Disease Prediction</li>
             <li>🏏 Cricket Analytics</li>
@@ -162,9 +162,6 @@ if choice == "About Me":
 # ---------------------------------------------------------
 # Skills
 # ---------------------------------------------------------
-# ---------------------------------------------------------
-# Skills
-# ---------------------------------------------------------
 elif choice == "Skills":
     st.markdown('<div class="section-header">🧠 Skills</div>', unsafe_allow_html=True)
 
@@ -174,7 +171,7 @@ elif choice == "Skills":
         st.markdown("""
         <div class="card">
         <h4>💻 Programming Languages & Tools</h4>
-        Python (NumPy, Pandas, Scikit-Learn) • R • MySql • Java •  
+        Python (NumPy, Pandas, Scikit-Learn) • R • SQL (PostgreSQL, MySQL) • Java •  
         JavaScript (ES6+) • Bash / Shell • Git & GitHub
         </div><br>
 
@@ -203,17 +200,45 @@ elif choice == "Skills":
 
         <div class="card">
         <h4>🗄️ Databases & Data Engineering</h4>
-        SQL • MySQL • MongoDB • ETL Pipelines
+        SQL (joins, CTEs, window functions) • PostgreSQL • MySQL • MongoDB •  
+        Apache Spark (PySpark) • ETL Pipelines
         </div><br>
 
         <div class="card">
         <h4>☁️ Cloud & MLOps</h4>
-        AWS •  
+        AWS (S3, EC2, Lambda, SageMaker) •  
         Docker • GitHub Actions (CI/CD) •  
         MLflow • Streamlit Deployment
         </div>
         """, unsafe_allow_html=True)
 
+# ---------------------------------------------------------
+# Courses / Certifications
+# ---------------------------------------------------------
+elif choice == "Courses":
+    st.markdown('<div class="section-header">🎓 Courses & Certifications</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="card">
+        <h4>📜 Completed Courses</h4>
+        <ul>
+            <li>Python Data Analysis Certificate (Udemy)</li>
+            <li>MySQL Certificate (Udemy)</li>
+            <li>Google Data Analytics Professional Certificate</li>
+            <li>Machine Learning A-Z (Udemy)</li>
+            <li>Deep Learning Specialization</li>
+            <li>Computer Vision Training (Udemy)</li>
+            <li>Power BI Data Visualization Certification</li>
+            <li>OpenAI & Generative AI Developer Course</li>
+            <li>Applied Machine Learning (University Course)</li>
+            <li>Data Mining (University Course)</li>
+            <li>Data Analytics: A Hands-On Approach</li>
+            <li>Big Data Systems</li>
+            <li>Linear Optimization (Simplex + Dual Simplex)</li>
+            <li>Regression & Residual Analysis</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # Projects
@@ -222,25 +247,45 @@ elif choice == "Projects":
     st.markdown('<div class="section-header">📂 Featured Projects</div>', unsafe_allow_html=True)
 
     projects = [
-        ("Breast Cancer Prediction", "Predict malignant vs benign cells", 
+        ("Breast Cancer Prediction", "Predict malignant vs benign cells",
          "https://github.com/wasayfaizan/Breast-Cancer-Prediction",
          "Python • Scikit-Learn • Pandas"),
 
-        ("Sentiment Analysis (LSTM)", "Deep Learning on tweets", 
+        ("Sentiment Analysis (BERT + LSTM)", "NLP deep learning on tweets",
          "https://github.com/wasayfaizan/Sentiment-Analysis-on-Tweets-using-LSTM",
-         "TensorFlow • NLP • LSTM"),
+         "TensorFlow • NLP • Transformers"),
 
-        ("Teen Smartphone Addiction Predictor", "Predicting addiction levels using ML",
+        ("Teen Smartphone Addiction Predictor", "ML model predicting addiction severity",
          "https://github.com/wasayfaizan/Teen-Phone-Addiction-Predictor",
-         "Python • ML • EDA"),
+         "Python • ML • Streamlit"),
 
-        ("Netflix Data Insights", "Full EDA on Netflix dataset",
+        ("Netflix Data Insights", "Full EDA & visualization",
          "https://github.com/wasayfaizan/Netflix-data-insights",
          "Pandas • Seaborn • Plotly"),
 
-        ("Used Car Price Predictor", "Regression ML models with Streamlit",
+        ("Used Car Price Predictor", "ML regression + Streamlit UI",
          "https://github.com/wasayfaizan/Cars-Price-Predictor-ML",
-         "Python • XGBoost • Streamlit")
+         "Python • XGBoost • Streamlit"),
+
+        ("Heart Disease Prediction", "Logistic regression & ML",
+         "https://github.com/wasayfaizan/Heart-Disease-Prediction",
+         "Python • Scikit-Learn"),
+
+        ("Airbnb Price Analysis", "NYC Airbnb dataset analysis",
+         "https://github.com/wasayfaizan/Airbnb-Price-Analysis",
+         "Python • EDA • Regression"),
+
+        ("Cricket Analytics", "Cricket datasets and visualization",
+         "https://github.com/wasayfaizan/Cricket-Analytics",
+         "Pandas • Matplotlib • Sports Analytics"),
+
+        ("AI Moodboard Generator", "Generative AI with Streamlit",
+         "https://github.com/wasayfaizan/ai-moodboard-generator",
+         "OpenAI API • CLIP • Diffusers • Streamlit"),
+
+        ("Toronto Subway Delay Analysis", "Transit data analytics",
+         "https://github.com/wasayfaizan/TTC-Subway-Delay-Analysis",
+         "Python • Data Cleaning • Visualization")
     ]
 
     for title, desc, link, tech in projects:
