@@ -174,7 +174,7 @@ elif choice == "Skills":
         st.markdown("""
         <div class="card">
         <h4>💻 Programming Languages & Tools</h4>
-        Python (NumPy, Pandas, Scikit-Learn) • R • SQL (PostgreSQL, MySQL) • Java •  
+        Python (NumPy, Pandas, Scikit-Learn) • R • MySql • Java •  
         JavaScript (ES6+) • Bash / Shell • Git & GitHub
         </div><br>
 
@@ -203,8 +203,7 @@ elif choice == "Skills":
 
         <div class="card">
         <h4>🗄️ Databases & Data Engineering</h4>
-        SQL (joins, CTEs, window functions) • PostgreSQL • MySQL • MongoDB •  
-        Apache Spark (PySpark) • ETL Pipelines
+        SQL (joins, CTEs, window functions) • MySQL • MongoDB • ETL Pipelines
         </div><br>
 
         <div class="card">
