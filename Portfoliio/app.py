@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------
-# Custom CSS - PREMIUM $300 TEMPLATE
+# Custom CSS - PREMIUM TEMPLATE
 # ---------------------------------------------------------
 st.markdown("""
 <style>
@@ -44,7 +44,6 @@ body {
     overflow: hidden;
 }
 
-/* Animated gradient shine */
 .hero::after {
     content: "";
     position: absolute;
@@ -92,26 +91,19 @@ body {
 }
 
 /* ------------------------------------------------------
-   PROJECT CARDS - PREMIUM
------------------------------------------------------- */
-/* ------------------------------------------------------
-   MODERN PREMIUM PROJECT CARDS (NO NEON)
+   PROJECT CARDS
 ------------------------------------------------------ */
 .card {
     background: rgba(255,255,255,0.45);
     backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     border-radius: 22px;
     padding: 26px;
     border: 1px solid rgba(255,255,255,0.35);
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 25px;
 
-    /* Smooth entrance */
     opacity: 0;
     animation: fadeCard 0.8s ease forwards;
 
-    /* Modern hover interaction setup */
     transition:
         transform 0.35s cubic-bezier(0.2, 0.6, 0.4, 1),
         box-shadow 0.35s ease,
@@ -119,42 +111,54 @@ body {
         background 0.35s ease;
 }
 
-/* Premium smooth fade-in */
 @keyframes fadeCard {
     from { opacity: 0; transform: translateY(25px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Modern hover effects */
 .card:hover {
-    transform: translateY(-10px) scale(1.025);  /* smooth & clean */
+    transform: translateY(-10px) scale(1.025);
     border-color: rgba(255,255,255,0.6);
     background: rgba(255,255,255,0.55);
-
-    /* Modern soft shadow */
     box-shadow:
         0 12px 24px rgba(0,0,0,0.10),
         0 20px 40px rgba(0,0,0,0.07);
 }
 
-/* Subtle “glass highlight sweep” (no glow, soft + professional) */
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0.15),
-        rgba(255,255,255,0.03)
-    );
-    opacity: 0;
-    transition: opacity 0.35s ease;
+/* ------------------------------------------------------
+   EXPERIENCE CARDS
+------------------------------------------------------ */
+.experience-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease;
 }
 
-.card:hover::before {
-    opacity: 1;
+.experience-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #4f46e5;
+    margin-bottom: 6px;
 }
 
+.experience-role {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.experience-duration {
+    font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.experience-desc {
+    font-size: 15px;
+    line-height: 1.55;
+}
 
 /* ------------------------------------------------------
    BUTTONS
@@ -167,17 +171,15 @@ body {
     border-radius: 12px;
     text-decoration: none;
     transition: 0.25s ease;
-    box-shadow: 0 5px 15px rgba(99,102,241,0.3);
 }
 
 .btn:hover {
     background: linear-gradient(135deg, #4f46e5, #9333ea);
     transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 20px rgba(147,51,234,0.35);
 }
 
 /* ------------------------------------------------------
-   TYPING TEXT
+   TYPEWRITER
 ------------------------------------------------------ */
 .typewriter {
     overflow: hidden;
@@ -187,16 +189,13 @@ body {
     font-size: 26px;
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to   { width: 100% }
-}
-@keyframes blink {
-    50% { border-color: transparent }
-}
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
 
 </style>
 """, unsafe_allow_html=True)
+
+
 
 # ---------------------------------------------------------
 # HERO
@@ -212,12 +211,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+
 # ---------------------------------------------------------
-# SIDEBAR
+# SIDEBAR NAVIGATION
 # ---------------------------------------------------------
 st.sidebar.title("📌 Navigation")
-pages = ["About Me", "Skills", "Courses", "Projects", "Resume", "Contact"]
+pages = ["About Me", "Skills", "Courses", "Projects", "Experience", "Resume", "Contact"]
 choice = st.sidebar.radio("Select a section:", pages)
+
 
 # ---------------------------------------------------------
 # ABOUT ME
@@ -229,29 +230,21 @@ if choice == "About Me":
     <div class="card">
         <p>
         I'm a 5th-year Computer Science student at <b>York University</b> with a minor in Applied Mathematics.<br><br>
+        I specialize in building Machine Learning models, Deep Learning systems, and Data Analysis pipelines.<br><br>
 
-        My main interests include:
+        Interests:
         <ul>
             <li>🤖 Machine Learning</li>
-            <li>📊 Data Analysis</li>
             <li>🧠 Deep Learning</li>
-            <li>📈 Predictive Modeling</li>
-            <li>🏥 AI for Healthcare</li>
+            <li>📊 Data Analytics</li>
             <li>🏏 Sports Analytics</li>
-        </ul>
-
-        High-impact projects I've worked on:
-        <ul>
-            <li>🧠 Sentiment Analysis with BERT</li>
-            <li>🔬 Breast Cancer Detection using CNNs</li>
-            <li>🏡 Airbnb Price Analysis</li>
-            <li>❤️ Heart Disease Prediction</li>
-            <li>🏏 Cricket Analytics</li>
-            <li>🚗 Used Car Price Predictor (ML + Streamlit)</li>
+            <li>🚀 AI for Healthcare</li>
         </ul>
         </p>
     </div>
     """, unsafe_allow_html=True)
+
+
 
 # ---------------------------------------------------------
 # SKILLS
@@ -264,47 +257,36 @@ elif choice == "Skills":
     with col1:
         st.markdown("""
         <div class="card">
-        <h4>💻 Programming Languages & Tools</h4>
-        Python (NumPy, Pandas, Scikit-Learn) • R • SQL (PostgreSQL, MySQL) • Java •  
-        JavaScript (ES6+) • Bash / Shell • Git & GitHub
-        </div><br>
-
+        <h4>💻 Programming</h4>
+        Python • R • SQL • Java • JavaScript • Bash • Git
+        </div>
         <div class="card">
-        <h4>📊 Data Science & Visualization</h4>
-        Data Cleaning • EDA • Time-Series Analysis • Matplotlib • Seaborn • Plotly •  
-        Power BI • Tableau • A/B Testing
-        </div><br>
-
+        <h4>📊 Data Science</h4>
+        Pandas • NumPy • Matplotlib • Seaborn • Plotly • Tableau • Power BI
+        </div>
         <div class="card">
-        <h4>🧮 Math Foundation</h4>
-        Linear Algebra • Calculus • Probability & Statistics • Optimization
+        <h4>🧮 Math</h4>
+        Linear Algebra • Probability • Statistics • Optimization
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
         <div class="card">
-        <h4>🤖 Machine Learning & Deep Learning</h4>
-        Scikit-Learn • TensorFlow • Keras • PyTorch •  
-        XGBoost • LightGBM • CatBoost •  
-        CNNs • LSTMs • RNNs •  
-        BERT & Transformers •  
-        Hyperparameter Tuning (GridSearchCV, Optuna)
-        </div><br>
-
+        <h4>🤖 Machine Learning</h4>
+        Scikit-Learn • TensorFlow • PyTorch • CNN • LSTM • Transformers • XGBoost
+        </div>
         <div class="card">
-        <h4>🗄️ Databases & Data Engineering</h4>
-        SQL (joins, CTEs, window functions) • PostgreSQL • MySQL • MongoDB •  
-        Apache Spark (PySpark) • ETL Pipelines
-        </div><br>
-
+        <h4>🗄️ Databases</h4>
+        PostgreSQL • MySQL • MongoDB • ETL Pipelines • Spark
+        </div>
         <div class="card">
-        <h4>☁️ Cloud & MLOps</h4>
-        AWS (S3, EC2, Lambda, SageMaker) •  
-        Docker • GitHub Actions (CI/CD) •  
-        MLflow • Streamlit Deployment
+        <h4>☁️ Cloud / DevOps</h4>
+        AWS • Docker • GitHub Actions • Streamlit Deployment
         </div>
         """, unsafe_allow_html=True)
+
+
 
 # ---------------------------------------------------------
 # COURSES
@@ -314,19 +296,20 @@ elif choice == "Courses":
 
     st.markdown("""
     <div class="card">
-        <h4>📜 Completed Courses</h4>
         <ul>
-            <li>Python Data Analysis Certificate (Udemy)</li>
+            <li>Python Data Analysis (Udemy)</li>
             <li>MySQL Certificate (Udemy)</li>
-            <li>Google Data Analytics Professional Certificate</li>
-            <li>Machine Learning A-Z (Udemy)</li>
+            <li>Google Data Analytics</li>
+            <li>Machine Learning A-Z</li>
             <li>Deep Learning Specialization</li>
-            <li>Computer Vision Training (Udemy)</li>
-            <li>Power BI Data Visualization Certification</li>
+            <li>Computer Vision (Udemy)</li>
+            <li>Power BI Certification</li>
             <li>OpenAI & Generative AI Developer Course</li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
+
+
 
 # ---------------------------------------------------------
 # PROJECTS
@@ -347,17 +330,13 @@ elif choice == "Projects":
          "https://github.com/wasayfaizan/Teen-Phone-Addiction-Predictor",
          "Python • ML • Streamlit"),
 
-        ("Netflix Data Insights", "Full EDA & visualization",
+        ("Used Car Price Predictor", "Regression model + UI",
+         "https://github.com/wasayfaizan/Cars-Price-Predictor-ML",
+         "XGBoost • Streamlit"),
+
+        ("Netflix Data Insights", "Full EDA & dashboard",
          "https://github.com/wasayfaizan/Netflix-data-insights",
          "Pandas • Seaborn • Plotly"),
-
-        ("Used Car Price Predictor", "ML regression + UI",
-         "https://github.com/wasayfaizan/Cars-Price-Predictor-ML",
-         "Python • XGBoost • Streamlit"),
-
-        ("Heart Disease Prediction", "Regression analysis and ML",
-         "https://github.com/wasayfaizan/Heart-Disease-Prediction",
-         "Python • Scikit-Learn")
     ]
 
     for title, desc, link, tech in projects:
@@ -367,15 +346,57 @@ elif choice == "Projects":
             <p>{desc}</p>
             <p><b>Tech:</b> {tech}</p>
             <a class="btn" href="{link}" target="_blank">🔗 View on GitHub</a>
-        </div><br>
+        </div>
         """, unsafe_allow_html=True)
+
+
+
+# ---------------------------------------------------------
+# EXPERIENCE
+# ---------------------------------------------------------
+elif choice == "Experience":
+    st.markdown('<div class="section-header">💼 Experience</div>', unsafe_allow_html=True)
+
+    # Experience 1
+    shipping_exp = """
+    <div class="experience-card">
+        <div class="experience-title">Customer Service & Data Support Assistant</div>
+        <div class="experience-role">Infinity Shipping Services – Karachi, Pakistan</div>
+        <div class="experience-duration">May 2021 – Aug 2021</div>
+        <div class="experience-desc">
+            • Delivered multi-channel customer support while resolving inquiries and service issues efficiently.<br>
+            • Used Microsoft Excel to monitor service request trends, escalate recurring issues, and support process improvements.<br>
+            • Organized and maintained structured customer data to enhance workflow and reporting accuracy.<br>
+            • Contributed to weekly team reports analyzing customer feedback and performance metrics.
+        </div>
+    </div>
+    """
+
+    # Experience 2
+    cyber_exp = """
+    <div class="experience-card">
+        <div class="experience-title">Data Analyst Intern (Cybersecurity)</div>
+        <div class="experience-role">Rewterz – Pakistan</div>
+        <div class="experience-duration">2024</div>
+        <div class="experience-desc">
+            • Built predictive models using Python + SQL.<br>
+            • Automated data ingestion & cleaning pipelines improving data accuracy by 22%.<br>
+            • Developed dashboards to uncover key security risk factors.<br>
+            • Supported cybersecurity analysis workflows involving structured threat data.
+        </div>
+    </div>
+    """
+
+    st.markdown(shipping_exp, unsafe_allow_html=True)
+    st.markdown(cyber_exp, unsafe_allow_html=True)
+
+
 
 # ---------------------------------------------------------
 # RESUME
 # ---------------------------------------------------------
 elif choice == "Resume":
     st.markdown('<div class="section-header">📄 Resume</div>', unsafe_allow_html=True)
-    st.write("Download my resume:")
 
     resume_file = "Portfoliio/resume.pdf"
     try:
@@ -387,7 +408,9 @@ elif choice == "Resume":
                 mime="application/pdf"
             )
     except:
-        st.error("❌ Resume not found. Ensure the file exists.")
+        st.error("❌ Resume not found.")
+
+
 
 # ---------------------------------------------------------
 # CONTACT
@@ -397,11 +420,9 @@ elif choice == "Contact":
 
     st.markdown("""
     <div class="card">
-        <p>
         📧 Email: <b>a.wasayfaizan@hotmail.com</b><br>
         🔗 LinkedIn: <a href="https://linkedin.com/in/wasayfaizan" target="_blank">linkedin.com/in/wasayfaizan</a><br>
         💻 GitHub: <a href="https://github.com/wasayfaizan" target="_blank">github.com/wasayfaizan</a><br><br>
         ✨ Thanks for visiting my portfolio!
-        </p>
     </div>
     """, unsafe_allow_html=True)
