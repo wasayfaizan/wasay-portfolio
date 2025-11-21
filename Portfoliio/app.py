@@ -11,114 +11,194 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------
-# Custom CSS
+# Custom CSS - PREMIUM $300 TEMPLATE
 # ---------------------------------------------------------
 st.markdown("""
 <style>
 
+/* ------------------------------------------------------
+   GLOBAL
+------------------------------------------------------ */
 body {
     background: #f5f7fa;
     font-family: 'Inter', sans-serif;
+    animation: fadeBody 0.8s ease-in-out;
 }
 
-/* ----------- Hero Section ----------- */
+@keyframes fadeBody {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ------------------------------------------------------
+   HERO SECTION
+------------------------------------------------------ */
 .hero {
     background: linear-gradient(135deg, #4f46e5, #9333ea);
     padding: 70px 40px;
-    border-radius: 20px;
+    border-radius: 25px;
     color: white;
-    animation: fadeIn 1s ease-in-out;
-    margin-bottom: 30px;
-}
-.hero h1 {
-    font-size: 52px;
-    font-weight: 800;
-}
-.hero p {
-    font-size: 20px;
-    opacity: 0.95;
-}
-
-/* ----------- Section Header ----------- */
-.section-header {
-    font-size: 32px;
-    font-weight: 700;
-    margin-top: 30px;
-    color: #1f2937;
-    padding-bottom: 8px;
-    border-bottom: 3px solid #e5e7eb;
-}
-
-/* ----------- Cards (Glassmorphism) ----------- */
-/* ----------- Project Card Animations ----------- */
-.card {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 18px;
-    padding: 22px;
-    border: 1px solid rgba(255,255,255,0.35);
-
-    /* Animation + Appearance */
-    transition: transform 0.35s cubic-bezier(0.2, 0.6, 0.4, 1),
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    animation: fadeUp 1s ease-in-out;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.22);
     position: relative;
     overflow: hidden;
 }
 
-/* Floating Animation on Hover */
-.card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
-    border-color: rgba(255,255,255,0.55);
+/* Animated gradient shine */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -30%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.25),
+        rgba(255,255,255,0)
+    );
+    transform: rotate(25deg);
+    animation: shine 4s infinite ease-in-out;
 }
 
-/* Glow highlight on hover */
+@keyframes shine {
+    0% { transform: translateX(-60%) rotate(25deg); }
+    50% { transform: translateX(10%) rotate(25deg); }
+    100% { transform: translateX(-60%) rotate(25deg); }
+}
+
+.hero h1 {
+    font-size: 54px;
+    font-weight: 900;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ------------------------------------------------------
+   SECTION HEADER
+------------------------------------------------------ */
+.section-header {
+    font-size: 34px;
+    font-weight: 800;
+    margin-top: 40px;
+    color: #111827;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #e5e7eb;
+    animation: fadeUp 0.7s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------------------------------
+   PROJECT CARDS - PREMIUM
+------------------------------------------------------ */
+.card {
+    background: rgba(255,255,255,0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 26px;
+    border: 1px solid rgba(255,255,255,0.35);
+    position: relative;
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+    transition: 
+        transform 0.45s cubic-bezier(0.2, 0.6, 0.4, 1),
+        box-shadow 0.45s ease,
+        border-color 0.35s ease;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+
+    /* Staggered fade-in */
+    opacity: 0;
+    animation: fadeCard 0.9s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.25s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+.card:nth-child(4) { animation-delay: 0.55s; }
+.card:nth-child(5) { animation-delay: 0.7s; }
+.card:nth-child(6) { animation-delay: 0.85s; }
+
+@keyframes fadeCard {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 3D Hover Tilt + Lift */
+.card:hover {
+    transform: translateY(-12px) scale(1.04) rotateX(6deg);
+    box-shadow: 0 25px 55px rgba(0,0,0,0.18);
+    border-color: rgba(255,255,255,0.6);
+}
+
+/* Neon sweep glow */
 .card:hover::before {
     content: "";
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 200%;
-    height: 200%;
+    width: 220%;
+    height: 220%;
     background: radial-gradient(
         circle at center,
-        rgba(255,255,255,0.35),
-        transparent 70%
+        rgba(255,255,255,0.55),
+        transparent 75%
     );
-    opacity: 0.25;
-    animation: glowMove 1.3s ease-out forwards;
+    opacity: 0.18;
+    animation: neonSweep 1.4s ease-out forwards;
 }
 
-/* Glow movement animation */
-@keyframes glowMove {
-    from {
-        transform: translate(-20%, -20%) scale(0.4);
-        opacity: 0.18;
-    }
-    to {
-        transform: translate(20%, 20%) scale(1);
-        opacity: 0;
-    }
+@keyframes neonSweep {
+    from { transform: translate(-20%, -20%) scale(0.5); opacity: 0.2; }
+    to   { transform: translate(20%, 20%) scale(1); opacity: 0; }
 }
 
-/* ----------- Buttons ----------- */
+/* Animated border glow */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
+    mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: borderGlow 5s infinite linear;
+}
+
+@keyframes borderGlow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* ------------------------------------------------------
+   BUTTONS
+------------------------------------------------------ */
 .btn {
-    padding: 10px 18px;
+    padding: 10px 20px;
     background: linear-gradient(135deg, #6366f1, #a855f7);
     color: white !important;
+    font-weight: 700;
+    border-radius: 12px;
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: 0.25s;
-}
-.btn:hover {
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    transition: 0.25s ease;
+    box-shadow: 0 5px 15px rgba(99,102,241,0.3);
 }
 
-/* ----------- Typing Animation ----------- */
+.btn:hover {
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(147,51,234,0.35);
+}
+
+/* ------------------------------------------------------
+   TYPING TEXT
+------------------------------------------------------ */
 .typewriter {
     overflow: hidden;
     border-right: 3px solid white;
@@ -129,22 +209,17 @@ body {
 
 @keyframes typing {
     from { width: 0 }
-    to { width: 100% }
+    to   { width: 100% }
 }
 @keyframes blink {
     50% { border-color: transparent }
-}
-
-@keyframes fadeIn {
-    from { opacity:0; transform: translateY(10px); }
-    to   { opacity:1; transform: translateY(0); }
 }
 
 </style>
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Hero Section
+# HERO
 # ---------------------------------------------------------
 st.markdown("""
 <div class="hero">
@@ -158,14 +233,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Sidebar Navigation
+# SIDEBAR
 # ---------------------------------------------------------
 st.sidebar.title("📌 Navigation")
 pages = ["About Me", "Skills", "Courses", "Projects", "Resume", "Contact"]
 choice = st.sidebar.radio("Select a section:", pages)
 
 # ---------------------------------------------------------
-# About Me
+# ABOUT ME
 # ---------------------------------------------------------
 if choice == "About Me":
     st.markdown('<div class="section-header">📌 About Me</div>', unsafe_allow_html=True)
@@ -199,7 +274,7 @@ if choice == "About Me":
     """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Skills
+# SKILLS
 # ---------------------------------------------------------
 elif choice == "Skills":
     st.markdown('<div class="section-header">🧠 Skills</div>', unsafe_allow_html=True)
@@ -252,7 +327,7 @@ elif choice == "Skills":
         """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Courses / Certifications
+# COURSES
 # ---------------------------------------------------------
 elif choice == "Courses":
     st.markdown('<div class="section-header">🎓 Courses & Certifications</div>', unsafe_allow_html=True)
@@ -274,7 +349,7 @@ elif choice == "Courses":
     """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Projects
+# PROJECTS
 # ---------------------------------------------------------
 elif choice == "Projects":
     st.markdown('<div class="section-header">📂 Featured Projects</div>', unsafe_allow_html=True)
@@ -288,7 +363,7 @@ elif choice == "Projects":
          "https://github.com/wasayfaizan/Sentiment-Analysis-on-Tweets-using-LSTM",
          "TensorFlow • NLP • Transformers"),
 
-        ("Teen Smartphone Addiction Predictor", "ML model predicting addiction severity",
+        ("Teen Smartphone Addiction Predictor", "Predict addiction severity",
          "https://github.com/wasayfaizan/Teen-Phone-Addiction-Predictor",
          "Python • ML • Streamlit"),
 
@@ -296,11 +371,11 @@ elif choice == "Projects":
          "https://github.com/wasayfaizan/Netflix-data-insights",
          "Pandas • Seaborn • Plotly"),
 
-        ("Used Car Price Predictor", "ML regression + Streamlit UI",
+        ("Used Car Price Predictor", "ML regression + UI",
          "https://github.com/wasayfaizan/Cars-Price-Predictor-ML",
          "Python • XGBoost • Streamlit"),
 
-        ("Heart Disease Prediction", "Logistic regression & ML",
+        ("Heart Disease Prediction", "Regression analysis and ML",
          "https://github.com/wasayfaizan/Heart-Disease-Prediction",
          "Python • Scikit-Learn")
     ]
@@ -316,7 +391,7 @@ elif choice == "Projects":
         """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Resume
+# RESUME
 # ---------------------------------------------------------
 elif choice == "Resume":
     st.markdown('<div class="section-header">📄 Resume</div>', unsafe_allow_html=True)
@@ -335,7 +410,7 @@ elif choice == "Resume":
         st.error("❌ Resume not found. Ensure the file exists.")
 
 # ---------------------------------------------------------
-# Contact
+# CONTACT
 # ---------------------------------------------------------
 elif choice == "Contact":
     st.markdown('<div class="section-header">📬 Contact Me</div>', unsafe_allow_html=True)
