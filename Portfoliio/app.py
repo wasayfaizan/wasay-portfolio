@@ -203,12 +203,12 @@ elif choice == "Skills":
 
         <div class="card">
         <h4>🗄️ Databases & Data Engineering</h4>
-        SQL (joins, CTEs, window functions) • MySQL • MongoDB • ETL Pipelines
+        SQL • MySQL • MongoDB • ETL Pipelines
         </div><br>
 
         <div class="card">
         <h4>☁️ Cloud & MLOps</h4>
-        AWS (S3, EC2, Lambda, SageMaker) •  
+        AWS •  
         Docker • GitHub Actions (CI/CD) •  
         MLflow • Streamlit Deployment
         </div>
