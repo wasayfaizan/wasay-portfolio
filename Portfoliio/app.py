@@ -53,13 +53,14 @@ body {
 .card {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(12px);
-    -webkit-backkit-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);  
     border-radius: 18px;
     padding: 22px;
     border: 1px solid rgba(255,255,255,0.35);
     transition: 0.25s ease;
     box-shadow: 0 8px 22px rgba(0,0,0,0.08);
 }
+
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 26px rgba(0,0,0,0.12);
